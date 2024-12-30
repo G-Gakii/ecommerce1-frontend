@@ -1,0 +1,54 @@
+<div class="container">
+  <form [formGroup]="registerForm">
+    <h1>Register Form</h1>
+    @if (message) {
+    <p>{{ message }}</p>
+    }
+    <div>
+      <label for="email">Email address</label> <br />
+      <input
+        type="email"
+        name="email"
+        id="email"
+        placeholder="e.g jane@example.com"
+        formControlName="email"
+      />
+      @if((registerForm.get('email')?.hasError('required') &&
+      (registerForm.get("email")?.touched))){
+      <p>Email required</p>
+      } @else if ((registerForm.get('email')?.hasError('email')) &&
+      (registerForm.get("email")?.touched)) {
+      <p>Invalid email format</p>
+      }
+    </div>
+    <div>
+      <label for="password">Password</label><br />
+      <input
+        type="password"
+        name="password"
+        id="password"
+        placeholder="e.g m#P52s@ap$V"
+        formControlName="password"
+      />
+      @if((registerForm.get('password')?.hasError('required') &&
+      (registerForm.get("password")?.touched))){
+      <p>Password required</p>
+      } @else if((registerForm.get('password')?.hasError('pattern') &&
+      (registerForm.get("password")?.touched))){
+      <p>
+        password must include at least one uppercase letter, one lowercase
+        letter, one number, one special character, and be at least 8 characters
+        long
+      </p>
+      }
+    </div>
+    <div>
+      <label for="role">Your Role</label><br />
+      <select name="role" id="role" formControlName="role">
+        <option value="shop">Shop</option>
+        <option value="buyer">Buyer</option>
+      </select>
+    </div>
+    <button (click)="registerUser()">Register user</button>
+  </form>
+</div>

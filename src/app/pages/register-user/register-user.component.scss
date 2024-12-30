@@ -1,0 +1,46 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 1000px;
+  min-height: 60vh;
+  padding: 2rem;
+
+  border-radius: 1rem;
+  box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem gray;
+  form {
+    min-width: 400px;
+    p {
+      color: red;
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+
+    h1 {
+      text-align: center;
+      padding: 1rem;
+      margin-bottom: 2rem;
+    }
+    label {
+      margin: 0.5rem;
+
+      font-size: 1.2rem;
+    }
+    input,
+    select,
+    button {
+      margin: 0.5rem 0 0.5rem 0;
+      padding: 0.8rem;
+      width: 100%;
+      border-radius: 0.5rem;
+      background-color: #6a89a71f;
+      border: none;
+      font-size: 1.2rem;
+    }
+    button {
+      background-color: rgba(255, 68, 0, 0.427);
+      margin-top: 1.5rem;
+      font-weight: bold;
+    }
+  }
+}
