@@ -1,5 +1,5 @@
 <div class="container">
-  <form [formGroup]="registerForm">
+  <form [formGroup]="registerForm" (submit)="registerUser()">
     <h1>Register Form</h1>
     @if (message) {
     <p>{{ message }}</p>
@@ -49,6 +49,6 @@
         <option value="buyer">Buyer</option>
       </select>
     </div>
-    <button (click)="registerUser()">Register user</button>
+    <button>Register user</button>
   </form>
 </div>

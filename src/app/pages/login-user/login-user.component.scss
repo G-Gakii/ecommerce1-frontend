@@ -10,6 +10,11 @@
   box-shadow: 0.1rem 0.1rem 0.1rem 0.1rem gray;
   form {
     min-width: 400px;
+    p {
+      color: red;
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
 
     h1 {
       text-align: center;

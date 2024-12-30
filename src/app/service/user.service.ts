@@ -23,8 +23,8 @@ export class UserService {
 
   loginUser(email: string, password: string) {
     return this.http
-      .post(`${environment.apiUrl}/login`, { email, password })
-      .pipe(catchError(this.handleError));
+      .post(`${environment.apiUrl}/login`, { email: email, password: password })
+      .pipe(catchError(this.handleError.bind(this)));
   }
 
   private handleError(error: HttpErrorResponse): Observable<never> {

@@ -7,6 +7,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { StrongPasswordRegx } from '../../validator/validator';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register-user',
@@ -19,7 +20,11 @@ export class RegisterUserComponent implements OnInit {
   registerForm!: FormGroup;
   message = '';
 
-  constructor(private userService: UserService, private fb: FormBuilder) {
+  constructor(
+    private userService: UserService,
+    private fb: FormBuilder,
+    private router: Router
+  ) {
     effect(() => {
       this.message = userService.ErrorMessage();
       console.log(this.message);
@@ -47,6 +52,7 @@ export class RegisterUserComponent implements OnInit {
           console.log(response);
         });
       this.registerForm.reset();
+      this.router.navigate(['/login']);
     }
   }
 }

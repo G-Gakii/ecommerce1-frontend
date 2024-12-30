@@ -1,6 +1,9 @@
 <div class="container">
-  <form action="">
+  <form [formGroup]="loginForm" (submit)="login()">
     <h1>Login Form</h1>
+    @if(message){
+    <p>{{ message }}</p>
+    }
     <div>
       <label for="email">Email address</label> <br />
       <input
@@ -8,7 +11,13 @@
         name="email"
         id="email"
         placeholder="e.g jane@example.com"
+        formControlName="email"
       />
+      @if
+      ((loginForm.get('email')?.hasError('required'))&&(loginForm.get('email')?.touched))
+      {
+      <p>Email required</p>
+      }
     </div>
     <div>
       <label for="password">Password</label><br />
@@ -17,9 +26,15 @@
         name="password"
         id="password"
         placeholder="e.g m#P52s@ap$V"
+        formControlName="password"
       />
+      @if
+      ((loginForm.get('password')?.hasError('required'))&&(loginForm.get('password')?.touched))
+      {
+      <p>Password required</p>
+      }
     </div>
 
-    <button>Login</button>
+    <button type="submit">Login</button>
   </form>
 </div>
